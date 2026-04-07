@@ -1,0 +1,71 @@
+@baseUrl = http://localhost:4004/odata/v4/gl-assist
+
+### ============================================
+### Scene 1: Happy path - office supplies (should match)
+### ============================================
+GET {{baseUrl}}/determineGL(description='Office paper and printer ink from Staples',amount=245.50,vendor='Staples')
+
+### Happy path - domestic travel
+GET {{baseUrl}}/determineGL(description='Grab taxi to client meeting at CBD',amount=28.50,vendor='Grab')
+
+### Happy path - international travel
+GET {{baseUrl}}/determineGL(description='Singapore Airlines flight to Tokyo',amount=1800.00,vendor='Singapore Airlines')
+
+### Happy path - client entertainment
+GET {{baseUrl}}/determineGL(description='Client dinner at Marina Bay Sands',amount=680.00,vendor='Marina Bay Sands')
+
+### Happy path - utilities
+GET {{baseUrl}}/determineGL(description='Office electricity bill for March',amount=1245.00,vendor='SP Group')
+
+### ============================================
+### Scene 2: Gap detection - triggers GPT-4.1
+### ============================================
+
+### Gap - SaaS subscription (no matching rule)
+GET {{baseUrl}}/determineGL(description='Zoom annual subscription renewal',amount=1440,vendor='Zoom Video Communications')
+
+### Gap - Cloud hosting (no matching rule)
+GET {{baseUrl}}/determineGL(description='AWS cloud hosting Q1 2026',amount=3850,vendor='Amazon Web Services')
+
+### Gap - ESG (no matching rule)
+GET {{baseUrl}}/determineGL(description='Carbon offset credits for ESG reporting',amount=2200,vendor='South Pole Carbon')
+
+### ============================================
+### Scene 3: Explain what happened
+### ============================================
+GET {{baseUrl}}/explainLastPosting()
+
+### ============================================
+### Scene 4: List all current rules
+### ============================================
+GET {{baseUrl}}/listAllRules()
+
+### ============================================
+### Scene 5: List missing rules (triggers AI on first call)
+### ============================================
+GET {{baseUrl}}/listMissingRules()
+
+### ============================================
+### Scene 6: Send digest email
+### ============================================
+POST {{baseUrl}}/sendDigest
+Content-Type: application/json
+
+{
+  "recipientEmail": "[email protected]"
+}
+
+### ============================================
+### Scene 7: Approve a rule (use ID from listMissingRules)
+### ============================================
+POST {{baseUrl}}/approveRule
+Content-Type: application/json
+
+{
+  "unmatchedId": "PUT-ID-FROM-listMissingRules-HERE"
+}
+
+### ============================================
+### Scene 8: Re-test after approval (should now match)
+### ============================================
+GET {{baseUrl}}/determineGL(description='Slack workspace subscription annual',amount=960,vendor='Slack Technologies')

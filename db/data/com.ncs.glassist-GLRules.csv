@@ -1,0 +1,11 @@
+ID,pattern,glAccount,description,active,createdAt,createdBy,modifiedAt,modifiedBy
+11111111-1111-1111-1111-000000000001,office|stationery|paper|printer|ink|pen|staples,6401000,Office Supplies and Stationery,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000002,domestic|local|taxi|grab|mrt|bus,6201000,Domestic Travel and Transport,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000003,international|overseas|flight|airfare|hotel,6202000,International Travel,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000004,client|entertainment|dinner|lunch|meal,6301000,Client Entertainment,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000005,electricity|water|gas|utilities|power,6501000,Utilities,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000006,phone|mobile|telecom|singtel|starhub|m1,6502100,Telecom and Mobile,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000007,consulting|legal|audit|professional|advisory,6601000,Professional Services,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000008,training|course|certification|workshop|seminar,6701000,Training and Development,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000009,marketing|advertising|promotion|campaign|branding,6801000,Marketing and Advertising,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed
+11111111-1111-1111-1111-000000000010,equipment|hardware|laptop|monitor|keyboard,6901000,Small Equipment,true,2026-01-01T00:00:00Z,seed,2026-01-01T00:00:00Z,seed

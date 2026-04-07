@@ -1,0 +1,35 @@
+_schema-version: '3.1'
+ID: gl-rule-assist
+version: 1.0.0
+description: GL Rule Assist - Joule Custom Skill for GL Account Determination
+
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: gl-rule-assist-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 512M
+    requires:
+      - name: gl-rule-assist-xsuaa
+      - name: gl-rule-assist-aicore
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+
+resources:
+  - name: gl-rule-assist-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+
+  - name: gl-rule-assist-aicore
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: default_aicore

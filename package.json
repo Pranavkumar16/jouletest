@@ -1,0 +1,43 @@
+{
+  "name": "gl-rule-assist",
+  "version": "1.0.0",
+  "description": "GL Rule Assist - CAP service for Joule custom skill",
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "build": "cds build --production",
+    "openapi": "cds compile srv/gl-service.cds --to openapi > openapi/gl-service-openapi.json"
+  },
+  "dependencies": {
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "@sap/xsenv": "^5",
+    "@sap-ai-sdk/foundation-models": "^1",
+    "nodemailer": "^6",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^8"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": "mocked",
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana"
+        }
+      }
+    }
+  }
+}

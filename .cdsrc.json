@@ -1,0 +1,12 @@
+{
+  "requires": {
+    "[development]": {
+      "auth": "mocked",
+      "db": { "kind": "sqlite", "credentials": { "url": ":memory:" } }
+    },
+    "[production]": {
+      "auth": { "kind": "xsuaa" },
+      "db": { "kind": "hana" }
+    }
+  }
+}

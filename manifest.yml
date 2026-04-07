@@ -1,0 +1,11 @@
+applications:
+  - name: gl-rule-assist-srv
+    path: gen/srv
+    memory: 512M
+    buildpacks:
+      - nodejs_buildpack
+    services:
+      - gl-rule-assist-xsuaa
+      - gl-rule-assist-aicore
+    env:
+      NODE_ENV: production

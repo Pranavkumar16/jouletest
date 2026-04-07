@@ -1,0 +1,24 @@
+{
+  "xsappname": "gl-rule-assist",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    { "name": "$XSAPPNAME.JouleInvoke", "description": "Invoke GL Assist from Joule" }
+  ],
+  "role-templates": [
+    {
+      "name": "JouleInvoker",
+      "description": "Joule custom skill invoker",
+      "scope-references": ["$XSAPPNAME.JouleInvoke"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "GLRuleAssist_Joule",
+      "description": "GL Rule Assist Joule skill role collection",
+      "role-template-references": ["$XSAPPNAME.JouleInvoker"]
+    }
+  ],
+  "oauth2-configuration": {
+    "grant-types": ["client_credentials", "authorization_code"]
+  }
+}

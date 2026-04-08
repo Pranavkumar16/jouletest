@@ -176,12 +176,8 @@ module.exports = class GLAssistService extends cds.ApplicationService {
     this.on('listAllRules', async () => {
       const rules = await SELECT.from(GLRules).where({ active: true });
       console.log(`✓ Returning ${rules.length} active rule(s)`);
-      return rules.map(r => ({
-        ID: r.ID,
-        pattern: r.pattern,
-        glAccount: r.glAccount,
-        description: r.description
-      }));
+      const lines = rules.map(r => `GL ${r.glAccount} - ${r.description} (Pattern: ${r.pattern})`);
+      return `Found ${rules.length} active GL rules:\n\n${lines.join('\n')}`;
     });
 
     this.on('sendDigest', async (req) => {

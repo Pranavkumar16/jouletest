@@ -18,7 +18,7 @@ service GLAssistService {
   function listMissingRules() returns array of MissingRuleSummary;
 
   @Core.Description: 'Use this function to see the current active GL rules in the rule table. Trigger phrases: Show me all GL rules / List the current rules / What rules do we have / Show the rule table / What are the existing rules. Returns all active rules with patterns, GL accounts, and descriptions. Do NOT use this for pending AI suggestions (use listMissingRules).'
-  function listAllRules() returns array of RuleInfo;
+  function listAllRules() returns String;
 
   @Core.Description: 'Use this action to send the weekly digest email to the GL master data owner with pending AI-suggested rules. Always confirm the recipient email with the user before calling. Trigger phrases: Email the digest to [address] / Send the weekly report / Notify the GL owner / Email pending suggestions. Returns the email message ID and a preview URL.'
   action sendDigest(

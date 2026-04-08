@@ -2,11 +2,11 @@
   "requires": {
     "[development]": {
       "auth": "mocked",
-      "db": { "kind": "sqlite", "credentials": { "url": ":memory:" } }
+      "db": { "kind": "sqlite", "impl": "@cap-js/sqlite", "credentials": { "url": ":memory:" }, "deploy-format": "csv" }
     },
     "[production]": {
       "auth": { "kind": "xsuaa" },
-      "db": { "kind": "hana" }
+      "db": { "kind": "sqlite", "impl": "@cap-js/sqlite", "credentials": { "url": ":memory:" }, "deploy-format": "csv" }
     }
   }
 }
